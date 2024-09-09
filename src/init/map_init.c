@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 20:01:25 by aska              #+#    #+#             */
-/*   Updated: 2024/09/08 22:32:51 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/10 00:09:45 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -41,24 +41,46 @@ int	init_map_process(t_cub *cube)
 	return (SUCCESS);
 }
 
+int set_var_creation_map(t_cub *cube)
+{
+	int y;
+	
+	y=0;
+	get_max_map_size(cube);
+	cube->map_tab = ft_calloc(cube->map_max_y +1, sizeof(char *));
+	if (cube->map_tab == NULL)
+		return (ERROR);
+    while (y != cube->map_max_y)
+	{
+        cube->map_tab[y] = ft_calloc(cube->map_max_x, sizeof(char));
+		if (cube->map_tab[y++] == NULL)
+			return (ERROR);
+	}
+	return (SUCCESS);
+}
+
 int map_creation(t_cub *cube)
 {
     int x;
     int y;
+	int i;
     t_lstmap *tmp;
     
     y = 0;
     tmp = cube->map;
-    get_max_map_size(cube);
-    cube->map_tab = ft_calloc(cube->map_max_y +1, sizeof(char *));
     while (y != cube->map_max_y)
     {
-        cube->map_tab[y] = ft_calloc(cube->map_max_x, sizeof(char));
         x = 0;
+		i = 0;
         while (x != cube->map_max_x -2)
         {
-            cube->map_tab[y][x] = get_blok_type(cube, tmp->line[x], x);
-            x++;
+			if (tmp->line[i] != '\0')
+			{
+            	cube->map_tab[y][x] = get_blok_type(cube, tmp->line[i], x);
+				i = ++x;
+			}
+			else
+				cube->map_tab[y][x++] = MEDIUM_BLOK;
         }
         tmp = tmp->next;
         y++;

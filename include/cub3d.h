@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 02:34:42 by aska              #+#    #+#             */
-/*   Updated: 2024/09/08 23:00:30 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/09 23:46:02 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -64,6 +64,7 @@ char    get_blok_type(t_cub *cube, char c, int x);
 int	    is_empty_line(char *line);
 int	    is_map_valid(char *line);
 int     map_creation(t_cub *cube);
+int     set_var_creation_map(t_cub *cube);
 
 
 

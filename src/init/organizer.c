@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 14:33:04 by aska              #+#    #+#             */
-/*   Updated: 2024/09/07 18:15:36 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/09 23:56:29 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -23,6 +23,9 @@ int	init_organizer(t_cub *cub, char *file)
 	cub->err = init_map_process(cub);
 	if (chk_box(cub->err, EQ, SUCCESS, "Initialize Map") == 1)
 		helltrain(cub, ERROR, 1, "Error on Initialization Map");
+	cub->err = set_var_creation_map(cub);
+	if (chk_box(cub->err, EQ, SUCCESS, "Setting Map Variables") == 1)
+		helltrain(cub, ERROR, 1, "Error on Allocation Map");
 	cub->err = map_creation(cub);
 	if (chk_box(cub->err, EQ, SUCCESS, "Creating Map") == 1)
 		helltrain(cub, ERROR, 1, "Error on Initialization Map");
