@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 02:34:42 by aska              #+#    #+#             */
-/*   Updated: 2024/09/04 02:23:35 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/08 23:00:30 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -25,6 +25,14 @@
 # include <stdlib.h>
 # include <time.h>
 # include <unistd.h>
+
+// #define BLOK -30
+// #define MEDIUM_BLOK -106
+// #define FLOOR 32
+// #define HERO -120
+#define BLOK 35         // █ -> Bloc plein
+#define MEDIUM_BLOK 43   // ▓ -> Bloc moyen
+#define FLOOR 32          
 
 void	title(void);
 
@@ -50,11 +58,25 @@ int		mlx_initialize(t_cub *cub);
 int		open_cub(t_cub *cub, char *file);
 void	goto_exit(int check, int err, t_state state, char *msg);
 void    mlx_free(t_cub *cub);
-void init_map_process(t_cub *cube, char *line);
+int     init_map_process(t_cub *cube);
+void    get_max_map_size(t_cub *cube);
+char    get_blok_type(t_cub *cube, char c, int x);
+int	    is_empty_line(char *line);
+int	    is_map_valid(char *line);
+int     map_creation(t_cub *cube);
+
+
+
+void	insert_front_lstmap(t_lstmap **head, char *line);
+void	insert_after_lstmap(t_lstmap *prev_node, char *line);
+void	insert_end_lstmap(t_lstmap **head, char *line);
+void	display_lstmap(t_lstmap *node);
+void	delete_lstmap(t_lstmap **head, t_lstmap *del_node);
+void	delete_all_lstmap(t_lstmap **head);
+void	explicit_display_all_dlst_node(t_lstmap *node);
+
 
 void free_mlx_img(t_cub *cub);
 void free_mlx_win(t_cub *cub);
-
-
 
 #endif

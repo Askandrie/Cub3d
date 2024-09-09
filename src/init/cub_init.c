@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 03:28:35 by aska              #+#    #+#             */
-/*   Updated: 2024/09/04 00:53:35 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/07 14:58:04 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -125,11 +125,11 @@ int	asset_discovery(t_cub *cub)
 	line = get_next_line(cub->fd);
 	while (line != NULL)
 	{
-		if (cub->err != FAIL)
+		if (cub->err != FAIL && cub->img->path_ok <= 5)
 			img_path_process(cub, line);
-		if (cub->err != FAIL && cub->img->path_ok >= 6)
-			init_map_process(cub, line);
-		ft_free(line);
+		else if (cub->err != FAIL)
+			insert_end_lstmap(&cub->map, ft_strdup(line));
+		line = ft_char_f(line);
 		line = get_next_line(cub->fd);
 	}
 	if (cub->err == FAIL)

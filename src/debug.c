@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:13:43 by aska              #+#    #+#             */
-/*   Updated: 2024/08/03 19:01:08 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/09 14:18:45 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -54,9 +54,23 @@ void    print_all_path(t_cub *cub)
     ft_printf("path->bgm_path = %s\n", cub->img->bgm_path);
 }
 
+void print_tab_map(char **tab)
+{
+    int i;
+
+    i = 0;
+    while (tab[i] != NULL)
+    {
+        ft_printf("%s\n", tab[i]);
+        i++;
+    }
+}
+
 void debug(t_cub *cub)
 {
     ft_printf(BHWHT"DEBUG\n"CRESET);
     print_all_path(cub);
+    display_lstmap(cub->map);
+    print_tab_map(cub->map_tab);
     ft_printf(BHWHT"END DEBUG\n"CRESET);
 }

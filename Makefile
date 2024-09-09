@@ -6,7 +6,7 @@
 #    By: aska <aska@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 10:52:20 by ygaiffie          #+#    #+#              #
-#    Updated: 2024/09/04 02:25:19 by aska             ###   ########.fr        #
+#    Updated: 2024/09/07 23:54:00 by aska             ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -26,7 +26,7 @@ MLX					:=	lib/MacroLibX/libmlx.so -lSDL2
 SRC_DIR				:=	src/
 OBJ_DIR				:=	obj/
 LIB_DIR				:=	lib/
-DIR_LIST			:=	{init,utils,free_function}
+DIR_LIST			:=	{init,utils,free_function,dlst_map}
 #-- MANDATORY
 HEADERS			:=	include/so_long.h
 SRCS			:= 	$(SRC_DIR)main.c \
@@ -37,10 +37,13 @@ SRCS			:= 	$(SRC_DIR)main.c \
 					$(SRC_DIR)init/cub_init.c \
 					$(SRC_DIR)init/map_init.c \
 					$(SRC_DIR)init/mlx_init.c \
+					$(SRC_DIR)dlst_map/lstmap_op.c \
+					$(SRC_DIR)dlst_map/lstmap_del.c \
 					$(SRC_DIR)init/organizer.c \
 					$(SRC_DIR)utils/check_utils.c \
 					$(SRC_DIR)utils/init_utils.c \
-					$(SRC_DIR)utils/pretty_utils.c
+					$(SRC_DIR)utils/pretty_utils.c \
+					$(SRC_DIR)utils/lstmap_utils.c \
 					
 OBJS			:= 	$(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 

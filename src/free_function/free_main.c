@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:07:59 by aska              #+#    #+#             */
-/*   Updated: 2024/08/03 20:20:15 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/07 02:33:53 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -27,7 +27,7 @@ void    helltrain(t_cub *cub, t_state state, int return_code, char *msg)
     mlx_free(cub);
     ft_free(cub->img);
     ft_free(cub->root_path);
-    ft_free(cub->map);
+    delete_all_lstmap(&cub->map);
     ft_free(cub);
     ft_exit(state, return_code, msg);
 }
