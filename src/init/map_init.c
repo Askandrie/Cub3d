@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 20:01:25 by aska              #+#    #+#             */
-/*   Updated: 2024/09/10 00:09:45 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/10 16:30:01 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -76,7 +76,7 @@ int map_creation(t_cub *cube)
         {
 			if (tmp->line[i] != '\0')
 			{
-            	cube->map_tab[y][x] = get_blok_type(cube, tmp->line[i], x);
+            	cube->map_tab[y][x] = get_blok_type(cube, tmp->line[i], x, y);
 				i = ++x;
 			}
 			else

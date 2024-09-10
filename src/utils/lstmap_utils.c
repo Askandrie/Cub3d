@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 03:06:27 by aska              #+#    #+#             */
-/*   Updated: 2024/09/09 18:18:14 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/10 23:00:15 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -60,7 +60,7 @@ void    get_max_map_size(t_cub *cube)
     cube->map_max_y = y;
 }
 
-char    get_blok_type(t_cub *cube, char c, int x)
+char    get_blok_type(t_cub *cube, char c, int x, int y)
 {
     if (x == cube->map_max_x)
         return('\0');
@@ -69,28 +69,11 @@ char    get_blok_type(t_cub *cube, char c, int x)
     else if (c == '0')
         return(FLOOR);
     else if (ft_isthis(c, "NSEW") == TRUE)
+    {
+        cube->player_x = x;
+        cube->player_y = y;
         return(c);
+    }
     else
         return(MEDIUM_BLOK);
 }
-
-// void	chk_flood_fill(t_map *gdd, int x, int y)
-// {
-// 	if (gdd->chk_map[y][x] == '1' || gdd->chk_map[y][x] == FUEL)
-// 		return ;
-// 	else if (gdd->chk_map[y][x] == 'E')
-// 		gdd->count_char->c_e--;
-// 	else if (gdd->chk_map[y][x] == 'C')
-// 		gdd->count_char->c_c--;
-// 	gdd->chk_map[y][x] = FUEL;
-// 	chk_flood_fill(gdd, x + 1, y);
-// 	chk_flood_fill(gdd, x - 1, y);
-// 	chk_flood_fill(gdd, x, y + 1);
-// 	chk_flood_fill(gdd, x, y - 1);
-// }
-
-// void	flood_fill_operation(t_map *gdd)
-// {
-// 	if (gdd->count_char->c_e != 0 || gdd->count_char->c_c != 0)
-// 		gdd_free(gdd, 6, "Map Invalid");
-// }

@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 02:42:41 by aska              #+#    #+#             */
-/*   Updated: 2024/09/07 18:28:35 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/10 16:26:29 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -86,6 +86,7 @@ typedef struct s_cub
 	char			*line;
 	t_lstmap		*map;
 	char			**map_tab;
+	char			**map_ff;
 	int				map_max_x;
 	int				map_max_y;
 	int				player_x;

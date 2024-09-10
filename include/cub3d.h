@@ -6,7 +6,7 @@
 /*   By: aska <aska@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 02:34:42 by aska              #+#    #+#             */
-/*   Updated: 2024/09/09 23:46:02 by aska             ###   ########.fr       */
+/*   Updated: 2024/09/10 23:07:18 by aska             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -26,13 +26,9 @@
 # include <time.h>
 # include <unistd.h>
 
-// #define BLOK -30
-// #define MEDIUM_BLOK -106
-// #define FLOOR 32
-// #define HERO -120
-#define BLOK 35         // █ -> Bloc plein
-#define MEDIUM_BLOK 43   // ▓ -> Bloc moyen
-#define FLOOR 32          
+#define BLOK 35
+#define MEDIUM_BLOK 43
+#define FLOOR 32
 
 void	title(void);
 
@@ -60,12 +56,14 @@ void	goto_exit(int check, int err, t_state state, char *msg);
 void    mlx_free(t_cub *cub);
 int     init_map_process(t_cub *cube);
 void    get_max_map_size(t_cub *cube);
-char    get_blok_type(t_cub *cube, char c, int x);
+char    get_blok_type(t_cub *cube, char c, int x, int y);
 int	    is_empty_line(char *line);
 int	    is_map_valid(char *line);
 int     map_creation(t_cub *cube);
 int     set_var_creation_map(t_cub *cube);
-
+int	    map_checker(t_cub *cub);
+int	    set_var_creation_map_ff(t_cub *cub);
+void	chk_flood_fill(t_cub *cub, int x, int y);
 
 
 void	insert_front_lstmap(t_lstmap **head, char *line);

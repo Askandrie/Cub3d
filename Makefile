@@ -6,7 +6,7 @@
 #    By: aska <aska@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 10:52:20 by ygaiffie          #+#    #+#              #
-#    Updated: 2024/09/07 23:54:00 by aska             ###   ########.fr        #
+#    Updated: 2024/09/10 17:30:35 by aska             ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -36,6 +36,7 @@ SRCS			:= 	$(SRC_DIR)main.c \
 					$(SRC_DIR)free_function/free_utils.c \
 					$(SRC_DIR)init/cub_init.c \
 					$(SRC_DIR)init/map_init.c \
+					$(SRC_DIR)init/map_flood_fill.c \
 					$(SRC_DIR)init/mlx_init.c \
 					$(SRC_DIR)dlst_map/lstmap_op.c \
 					$(SRC_DIR)dlst_map/lstmap_del.c \
